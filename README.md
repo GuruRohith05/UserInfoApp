@@ -1,97 +1,141 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📱 UserInfoApp
 
-# Getting Started
+UserInfoApp is a **React Native application** that fetches and displays user information from the **Random Data API**. It supports navigation between multiple users and provides a seamless user experience.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 🌟 Features
+- 📡 **Fetches Random User Data** – Retrieves user details from the Random Data API.
+- 🖼️ **Displays User Profiles** – Shows user name, email, avatar, and other details.
+- 🔄 **Smooth Navigation** – Uses **React Navigation** for navigating between screens.
+- 📱 **Compatible with Android & iOS** – Works on both platforms.
+- ⚡ **Fast & Responsive UI** – Optimized performance with React Native.
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 🚀 Getting Started
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Follow these steps to **set up and run the project locally**.
 
+### **1️⃣ Prerequisites**
+Before setting up the project, make sure you have the following installed:
+
+✅ **Node.js** (Latest LTS version) → [Download Here](https://nodejs.org/)  
+✅ **React Native CLI** (or **Expo CLI** if using Expo)  
+✅ **Android Studio** (for emulator) OR a physical Android device  
+✅ **Java JDK** (Required for Android development)  
+
+To check if everything is installed correctly, run:
 ```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+node -v   # Check Node.js version
+npm -v    # Check npm version
+java -version  # Check Java version
+adb devices   # Check if the Android device/emulator is connected
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+### **2️⃣ Clone the Repository**
+First, clone the repository and navigate into the project folder:
 
 ```sh
-bundle install
+git clone https://github.com/yourusername/UserInfoApp.git
+cd UserInfoApp
 ```
 
-Then, and every time you update your native dependencies, run:
+---
+
+### **3️⃣ Install Dependencies**
+Run the following command to install all required dependencies:
 
 ```sh
-bundle exec pod install
+npm install
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+---
+
+### **4️⃣ Start Metro Bundler**
+Metro Bundler is a JavaScript bundler for React Native. Start it using:
 
 ```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+npx react-native start
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+If you face issues, try resetting the cache:
+```sh
+npx react-native start --reset-cache
+```
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+---
 
-## Step 3: Modify your app
+### **5️⃣ Run the Application**
+#### ✅ **On Android Emulator or Physical Device**
+Make sure an **Android emulator** is running or a **physical device** is connected via USB.
 
-Now that you have successfully run the app, let's make changes!
+Then, run:
+```sh
+npx react-native run-android
+```
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+If your emulator/device is not detected, check with:
+```sh
+adb devices
+```
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+#### 🍎 **On iOS Simulator (Mac Only)**
+For iOS, use the following command:
+```sh
+npx react-native run-ios
+```
+> Note: You need **Xcode** installed on Mac to run the iOS version.
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+---
 
-## Congratulations! :tada:
+## 🛠️ Troubleshooting
 
-You've successfully run and modified your React Native App. :partying_face:
+### **1️⃣ "adb: device not found" error**
+If you get an error like:
+```
+adb.exe: device 'emulator-5554' not found
+```
+Try restarting ADB:
+```sh
+adb kill-server
+adb start-server
+adb devices
+```
 
-### Now what?
+### **2️⃣ Emulator crashes or doesn’t launch**
+- Make sure your **Android Virtual Device (AVD)** is running.
+- Open **Android Studio** → Go to **Device Manager** → Start the emulator manually.
+- Try running the app again.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+### **3️⃣ Stuck on "Metro Bundler"**
+If Metro is stuck or slow:
+```sh
+npx react-native start --reset-cache
+```
 
-# Troubleshooting
+---
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## 📂 Project Structure
 
-# Learn More
+```
+UserInfoApp/
+│-- android/                # Android-specific code
+│-- ios/                    # iOS-specific code
+│-- src/                    # Main app source code
+│   ├── components/         # Reusable UI components
+│   ├── screens/            # Screen components
+│   ├── navigation/         # React Navigation setup
+│   ├── api/                # API calls and services
+│   ├── styles/             # Stylesheets
+│   ├── App.js              # Main app entry file
+│-- assets/                 # Images, icons, etc.
+│-- package.json            # Project dependencies
+│-- README.md               # Project documentation (this file)
+```
 
-To learn more about React Native, take a look at the following resources:
+---
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## 📜 License
+This project is open-source and available under the **MIT License**.
+
